@@ -3,33 +3,42 @@ import { useRef, useEffect, useState } from "react";
 
 const stats = [
   { value: 87, suffix: "%", label: "Time saved on investigations" },
-  { value: 32, suffix: "K", label: "Documents reviewed per hour" },
+  { value: 32, suffix: "K", label: "Documents reviewed/hr" },
   { value: 98, suffix: "%", label: "Faster deposition summaries" },
   { value: 99.2, suffix: "%", label: "Review accuracy rate" },
 ];
 
 const testimonials = [
   {
-    quote: "DISCO has transformed how we handle complex litigation. The AI capabilities are game-changing.",
+    quote:
+      "DISCO has transformed how we handle complex litigation. The AI capabilities are game-changing.",
     author: "Sarah Chen",
     role: "Partner",
     company: "Global AmLaw 50 Firm",
   },
   {
-    quote: "We've reduced our document review costs by 60% while improving quality and defensibility.",
+    quote:
+      "We've reduced our document review costs by 60% while improving quality and defensibility.",
     author: "Michael Torres",
     role: "General Counsel",
     company: "Fortune 100 Corporation",
   },
   {
-    quote: "Cecilia AI answers in seconds what used to take our associates days to research.",
+    quote:
+      "Cecilia AI answers in seconds what used to take our associates days to research.",
     author: "Jennifer Park",
     role: "Litigation Director",
     company: "Leading Tech Company",
   },
 ];
 
-const AnimatedCounter = ({ value, suffix }: { value: number; suffix: string }) => {
+const AnimatedCounter = ({
+  value,
+  suffix,
+}: {
+  value: number;
+  suffix: string;
+}) => {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -97,8 +106,8 @@ const Stats = () => {
             Measurable impact on every matter
           </h2>
           <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-            Our customers consistently report dramatic improvements in efficiency,
-            accuracy, and outcomes.
+            Our customers consistently report dramatic improvements in
+            efficiency, accuracy, and outcomes.
           </p>
         </motion.div>
 
@@ -117,7 +126,9 @@ const Stats = () => {
                 <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2">
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 </div>
-                <p className="text-slate-400 text-sm md:text-base">{stat.label}</p>
+                <p className="text-slate-400 text-sm md:text-base">
+                  {stat.label}
+                </p>
 
                 {/* Decorative line */}
                 <div className="absolute bottom-0 left-6 right-6 h-1 bg-gradient-to-r from-[#01afa9] to-violet-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -134,18 +145,25 @@ const Stats = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          {["G2 Leader", "Gartner Cool Vendor", "ACC Value Champion", "Legaltech News"].map(
-            (badge, i) => (
-              <div key={badge} className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
-                  <svg className="w-5 h-5 text-[#01afa9]" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                </div>
-                <span className="text-white font-medium">{badge}</span>
+          {[
+            "G2 Leader",
+            "Gartner Cool Vendor",
+            "ACC Value Champion",
+            "Legaltech News",
+          ].map((badge, i) => (
+            <div key={badge} className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
+                <svg
+                  className="w-5 h-5 text-[#01afa9]"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
               </div>
-            )
-          )}
+              <span className="text-white font-medium">{badge}</span>
+            </div>
+          ))}
         </motion.div>
 
         {/* Testimonials */}
@@ -168,7 +186,9 @@ const Stats = () => {
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
               </svg>
 
-              <p className="text-slate-300 text-lg mb-6 leading-relaxed">"{testimonial.quote}"</p>
+              <p className="text-slate-300 text-lg mb-6 leading-relaxed">
+                "{testimonial.quote}"
+              </p>
 
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#01afa9] to-violet-500 flex items-center justify-center text-white font-bold">
@@ -178,7 +198,9 @@ const Stats = () => {
                     .join("")}
                 </div>
                 <div>
-                  <p className="text-white font-semibold">{testimonial.author}</p>
+                  <p className="text-white font-semibold">
+                    {testimonial.author}
+                  </p>
                   <p className="text-slate-400 text-sm">
                     {testimonial.role}, {testimonial.company}
                   </p>

@@ -1,81 +1,68 @@
 import { motion } from "framer-motion";
 
+const baseUrl = import.meta.env.BASE_URL || "";
+
 const products = [
   {
-    name: "Cecilia",
-    tagline: "AI Investigation",
-    description: "Your AI-powered assistant that answers complex fact questions in seconds, not days.",
-    stat: "87% time savings",
-    icon: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z" />
-      </svg>
-    ),
-    featured: true,
-    isNew: true,
-    gradient: "from-violet-500/20 to-purple-500/20",
-  },
-  {
-    name: "Ediscovery",
-    tagline: "Cloud-Native Platform",
-    description: "Process, analyze, and produce documents at unprecedented speed and scale.",
+    name: "DISCO Platform",
+    tagline: "Cloud-Native Ediscovery",
+    description: "The complete cloud-native ediscovery platform. Process, analyze, review, and produce documents at unprecedented speed and scale with AI-powered workflows.",
     stat: "32K docs/hour",
+    image: "products/platform.webp",
     icon: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" />
       </svg>
     ),
-    featured: true,
+    size: "large",
     gradient: "from-[#01afa9]/20 to-cyan-500/20",
+    accentColor: "#01afa9",
   },
   {
     name: "Auto Review",
     tagline: "Generative AI Review",
     description: "AI-powered document review that learns from your team's decisions.",
     stat: "98% accuracy",
+    image: "products/autoreview.png",
     icon: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
       </svg>
     ),
+    size: "medium",
     isNew: true,
     gradient: "from-amber-500/20 to-orange-500/20",
-  },
-  {
-    name: "Case Builder",
-    tagline: "Deposition Review",
-    description: "Create deposition summaries and case timelines in minutes.",
-    stat: "98% faster",
-    icon: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
-      </svg>
-    ),
-    gradient: "from-blue-500/20 to-indigo-500/20",
+    accentColor: "#f59e0b",
   },
   {
     name: "Hold",
     tagline: "Legal Hold Management",
     description: "Automate preservation notices and track compliance effortlessly.",
     stat: "100% defensible",
+    image: "products/hold.webp",
     icon: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
       </svg>
     ),
+    size: "small",
     gradient: "from-emerald-500/20 to-green-500/20",
+    accentColor: "#10b981",
   },
   {
     name: "Request",
     tagline: "Legal Request Management",
     description: "Streamline subpoenas, regulatory requests, and internal investigations.",
     stat: "75% faster",
+    image: "products/request.webp",
     icon: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
       </svg>
     ),
+    size: "small",
     gradient: "from-pink-500/20 to-rose-500/20",
+    accentColor: "#ec4899",
   },
 ];
 
@@ -130,60 +117,102 @@ const Products = () => {
 
         {/* Bento Grid */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {products.map((product, index) => (
-            <motion.div
-              key={product.name}
-              className={`group relative rounded-2xl border border-slate-200 bg-white p-6 md:p-8 transition-all hover:border-[#01afa9]/30 hover:shadow-xl ${
-                product.featured ? "lg:col-span-1 lg:row-span-2" : ""
-              }`}
-              variants={itemVariants}
-            >
-              {/* Gradient Background on Hover */}
-              <div
-                className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${product.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
-              />
+          {products.map((product) => {
+            const sizeClasses = {
+              large: "md:col-span-2 lg:col-span-2 lg:row-span-2",
+              medium: "md:col-span-2 lg:col-span-2 lg:row-span-1",
+              small: "md:col-span-1 lg:col-span-1 lg:row-span-1",
+            };
+            const imageHeights = {
+              large: "h-48 lg:h-64",
+              medium: "h-36",
+              small: "h-28",
+            };
+            const gridClass = sizeClasses[product.size as keyof typeof sizeClasses] || sizeClasses.small;
+            const imageHeight = imageHeights[product.size as keyof typeof imageHeights] || imageHeights.small;
 
-              <div className="relative">
-                {/* Icon & Badge Row */}
-                <div className="flex items-start justify-between mb-4">
-                  <div className="p-3 rounded-xl bg-slate-100 text-slate-700 group-hover:bg-white group-hover:text-[#01afa9] transition-colors">
-                    {product.icon}
-                  </div>
-                  {product.isNew && (
-                    <span className="px-2.5 py-1 rounded-full bg-violet-100 text-violet-700 text-xs font-semibold">
-                      New
-                    </span>
-                  )}
-                </div>
+            return (
+              <motion.div
+                key={product.name}
+                className={`group relative rounded-2xl border border-slate-200 bg-white overflow-hidden transition-all hover:shadow-2xl hover:-translate-y-1 ${gridClass}`}
+                variants={itemVariants}
+              >
 
-                {/* Content */}
-                <h3 className="text-xl font-bold text-slate-900 mb-1">{product.name}</h3>
-                <p className="text-sm text-[#01afa9] font-medium mb-3">{product.tagline}</p>
-                <p className="text-slate-600 mb-6 leading-relaxed">{product.description}</p>
-
-                {/* Stat */}
-                <div className="flex items-center justify-between pt-4 border-t border-slate-100">
-                  <span className="text-2xl font-bold gradient-text">{product.stat}</span>
-                  <motion.a
-                    href={`#${product.name.toLowerCase()}`}
-                    className="flex items-center gap-1 text-slate-500 hover:text-[#01afa9] text-sm font-medium transition-colors"
-                    whileHover={{ x: 4 }}
+                <div className="relative h-full flex flex-col">
+                  {/* Image Area */}
+                  <div
+                    className={`relative bg-gradient-to-br ${product.gradient} ${imageHeight}`}
                   >
-                    Learn more
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </motion.a>
+                    {/* Fallback icon when image not loaded */}
+                    <div className="absolute inset-0 flex items-center justify-center z-0">
+                      <div
+                        className={`rounded-2xl flex items-center justify-center text-white/80 ${product.size === 'large' ? 'w-20 h-20' : 'w-14 h-14'}`}
+                        style={{ backgroundColor: product.accentColor }}
+                      >
+                        {product.icon}
+                      </div>
+                    </div>
+                    <img
+                      src={`${baseUrl}/${product.image}`}
+                      alt={`${product.name} product screenshot`}
+                      className="absolute inset-0 w-full h-full object-cover object-top z-10"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                      }}
+                    />
+                    {/* Gradient fade to blend into card */}
+                    <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-white via-white/80 to-transparent z-20" />
+                    {product.isNew && (
+                      <span className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-white/90 text-violet-700 text-xs font-semibold shadow-sm">
+                        New
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Content Area */}
+                  <div className={`flex flex-col flex-1 ${product.size === 'large' ? 'p-6' : 'p-4'}`}>
+                    {/* Header */}
+                    <div className="flex items-center gap-2 mb-2">
+                      <div
+                        className="p-2 rounded-lg text-white"
+                        style={{ backgroundColor: product.accentColor }}
+                      >
+                        {product.icon}
+                      </div>
+                      <div>
+                        <h3 className={`font-bold text-slate-900 ${product.size === 'large' ? 'text-xl' : 'text-base'}`}>{product.name}</h3>
+                        <p className="text-xs text-slate-500 font-medium">{product.tagline}</p>
+                      </div>
+                    </div>
+
+                    {/* Description */}
+                    <p className={`text-slate-600 leading-relaxed flex-1 ${product.size === 'large' ? 'text-base' : 'text-sm'}`}>{product.description}</p>
+
+                    {/* Footer */}
+                    <div className="flex items-center justify-between pt-3 mt-3 border-t border-slate-100">
+                      <span className={`font-bold gradient-text ${product.size === 'large' ? 'text-2xl' : 'text-lg'}`}>{product.stat}</span>
+                      <motion.a
+                        href={`#${product.name.toLowerCase().replace(' ', '-')}`}
+                        className="flex items-center gap-1 text-slate-500 hover:text-[#01afa9] text-sm font-medium transition-colors"
+                        whileHover={{ x: 4 }}
+                      >
+                        Learn more
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </motion.a>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </motion.div>
 
         {/* Bottom CTA */}

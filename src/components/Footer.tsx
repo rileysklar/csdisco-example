@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 
+const baseUrl = import.meta.env.BASE_URL || "";
+
 const footerLinks = {
   Products: [
     { name: "Cecilia AI", href: "#" },
@@ -72,11 +74,12 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-6 gap-8 pb-12 border-b border-white/10">
           {/* Brand Column */}
           <div className="col-span-2">
-            <a href="/" className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#01afa9] to-[#009590] flex items-center justify-center">
-                <span className="text-white font-bold text-xl">D</span>
-              </div>
-              <span className="text-2xl font-bold text-white tracking-tight">DISCO</span>
+            <a href="/" className="inline-block mb-6">
+              <img
+                src={`${baseUrl}/products/disco.svg`}
+                alt="DISCO"
+                className="h-8 brightness-0 invert"
+              />
             </a>
             <p className="text-slate-400 text-sm leading-relaxed mb-6 max-w-xs">
               AI-powered legal technology for the world's most complex matters.

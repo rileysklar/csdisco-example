@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/Hero";
 import Products from "../components/Products";
+import CustomerMarquee from "../components/CustomerMarquee";
 import Stats from "../components/Stats";
 import CTA from "../components/CTA";
 import Footer from "../components/Footer";
@@ -11,6 +12,7 @@ import Footer from "../components/Footer";
   <main>
     <Hero client:load />
     <Products client:visible />
+    <CustomerMarquee client:visible />
     <Stats client:visible />
     <CTA client:visible />
     <Footer client:visible />
